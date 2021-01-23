@@ -17,6 +17,7 @@ public class GameWindow extends JFrame {
     private static float drop_top = -100;
     private static long last_frame_time;
     private static float drop_v = 200;
+    private static int score = 0;
 
     public static void main(String[] args) throws IOException {
         background = ImageIO.read(GameWindow.class.getResourceAsStream("background.png"));
@@ -44,6 +45,8 @@ public class GameWindow extends JFrame {
                     drop_top = -100;
                     drop_left =(int) (Math.random() * (game_field.getWidth() - drop.getWidth(null)));
                     drop_v += 20;
+                    score++;
+                    game_Window.setTitle("Score " + score);
                 }
             }
         });
